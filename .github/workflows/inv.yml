@@ -1,5 +1,5 @@
 
-name: Build and deploy an app to AKS
+name: Deploy inv service to AKS
 
 on:
   push:
