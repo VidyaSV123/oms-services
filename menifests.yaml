@@ -18,4 +18,4 @@ spec:
       - name: oms-inv-deployment
         image: azcrvfunctionpov.azurecr.io/oms-inv:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 80
