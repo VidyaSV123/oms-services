@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: oms-deployment
+  name: oms-deployment-via-cicd
   labels:
-    app: oms-deployment
+    app: oms-deployment-via-cicd
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: oms
+      app: omscicd
   template:
     metadata:
       labels:
-        app: oms
+        app: omscicd
     spec:
       containers:
-      - name: oms
+      - name: omscicd
         image: azcrvfunctionpov.azurecr.io/oms-inv:latest
         ports:
-        - containerPort: 8081
+        - containerPort: 80
