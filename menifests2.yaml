@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oms-product-deployment
+  labels:
+    app: oms-product-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oms-product-deployment
+  template:
+    metadata:
+      labels:
+        app: oms-product-deployment
+    spec:
+      containers:
+      - name: oms-product-deployment
+        image: azcrvfunctionpov.azurecr.io/oms-product:latest
+        ports:
+        - containerPort: 80
