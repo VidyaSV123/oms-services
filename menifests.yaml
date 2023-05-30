@@ -19,3 +19,15 @@ spec:
         image: azcrvfunctionpov.azurecr.io/oms-inv:latest
         ports:
         - containerPort: 443
+        
+apiVersion: v1
+kind: Service
+metadata:
+  name: inv-service
+spec:
+  selector:
+    app: oms-inv-deployment
+  ports:
+    - port: 8765
+      targetPort: 9376
+  type: LoadBalancer
