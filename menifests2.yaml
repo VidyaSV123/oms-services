@@ -19,7 +19,7 @@ spec:
         image: azcrvfunctionpov.azurecr.io/oms-product:latest
         ports:
         - containerPort: 80
-----        
+---        
 apiVersion: v1
 kind: Service
 metadata:
