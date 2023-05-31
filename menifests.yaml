@@ -2,8 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: oms-inv-deployment
-  labels:
-    app: oms-inv-deployment
 spec:
   replicas: 2
   selector:
@@ -17,17 +15,24 @@ spec:
       containers:
       - name: oms-inv-deployment
         image: azcrvfunctionpov.azurecr.io/oms-inv:latest
-        ports:
-        - containerPort: 443
+        env:
+        - name: DATABASE_HOST
+          value: "mysqlvfunction-q32s.mysql.database.azure.com"
+        - name: DATABASE_USERNAME
+          value: "workshop"
+        - name: DATABASE_PASSWORD
+          value: "vFunction@2021!"
+        - name: DATABASE_NAME    
+          value: "demo"     
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: inv-service
+  name: oms-inv-deployment
 spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
   selector:
     app: oms-inv-deployment
-  ports:
-    - port: 8765
-      targetPort: 9376
-  type: LoadBalancer
