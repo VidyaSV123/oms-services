@@ -17,13 +17,13 @@ spec:
         image: azcrvfunctionpov.azurecr.io/oms-product:latest
         env:
         - name: DATABASE_HOST
-          value: "mysqlvfunction-q32s.mysql.database.azure.com"
+          value: "mysqldbvfunctionnprd.mysql.database.azure.com"
         - name: DATABASE_USERNAME
           value: "workshop"
         - name: DATABASE_PASSWORD
           value: "vFunction@2021!"
         - name: DATABASE_NAME    
-          value: "demo"     
+          value: "oms1"    
 ---
 apiVersion: v1
 kind: Service
