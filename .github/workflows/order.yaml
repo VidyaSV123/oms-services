@@ -1,5 +1,5 @@
 
-name: Deploy inv service to AKS
+name: Deploy order service to AKS
 
 on:
   push:
