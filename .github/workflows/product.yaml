@@ -8,7 +8,7 @@ on:
 
 env:
   AZURE_CONTAINER_REGISTRY: "azcrvfunctionpov.azurecr.io"
-  CONTAINER_NAME: "acr-oms-inv"
+  CONTAINER_NAME: "oms-product"
   RESOURCE_GROUP: "rg-vFunction-q32s"
   RESOURCE_GROUP2: "rg-vFunction-q32s"
   CLUSTER_NAME: "aks-vFunction"
