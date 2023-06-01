@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oms-order-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: oms-order-deployment
+  template:
+    metadata:
+      labels:
+        app: oms-order-deployment
+    spec:
+      containers:
+      - name: oms-order-deployment
+        image: azcrvfunctionpov.azurecr.io/azcrvfunctionpov/oms-order:latest
+        env:
+        - name: DATABASE_HOST
+          value: "mysqldbvfunctionnprd.mysql.database.azure.com"
+        - name: DATABASE_USERNAME
+          value: "workshop"
+        - name: DATABASE_PASSWORD
+          value: "vFunction@2021!"
+        - name: DATABASE_NAME    
+          value: "oms1"    
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: oms-order-deployment
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: oms-order-deployment
